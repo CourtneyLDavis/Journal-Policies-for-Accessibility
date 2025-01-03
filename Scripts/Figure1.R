@@ -1,7 +1,7 @@
 #################################################
 #### Plotting journal policy data            ####
 #### Created by: Courtney L Davis            #### 
-#### Last checked: 22 August 2024            ####
+#### Last checked: 3 January 2025            ####
 #################################################
 
 
@@ -68,16 +68,16 @@ grid_data <- grid_data[-1,]
 
 journals_summary$Var3 <- paste(journals_summary$Var2, "_", journals_summary$variable)
 journals_summary$Var3 <- factor(journals_summary$Var3, 
-                                levels = c("Color blindness _ Freq",
-                                           "Color blindness _ Freq_No",
-                                           "Visual impairment (other than color blind) _ Freq",
+                                levels = c("Color blindness _ Freq_No",
+                                            "Color blindness _ Freq",
                                            "Visual impairment (other than color blind) _ Freq_No",
-                                           "Non-specific _ Freq",
+                                           "Visual impairment (other than color blind) _ Freq",
                                            "Non-specific _ Freq_No",
-                                           "Seizures _ Freq",
+                                           "Non-specific _ Freq",
                                            "Seizures _ Freq_No",
-                                           "Learning disability _ Freq",
+                                           "Seizures _ Freq",
                                            "Learning disability _ Freq_No",
+                                           "Learning disability _ Freq",
                                            "NA _ NA"))
 
 percent_data <- journals_summary[journals_summary$variable == "Freq",]
@@ -92,11 +92,11 @@ ggplot(journals_summary) +
 
   # Add the stacked bar
   geom_bar(aes(x=as.factor(id), y=value, fill=Var3), stat="identity") +
-  scale_fill_manual(values = c("#440154FF","grey90",
-                               "#2A7B8EFF","grey90",
-                               "#22A384FF","grey90",
-                               "#7AD151FF","grey90",
-                               "#FDE725FF","grey90",
+  scale_fill_manual(values = c("grey90","#440154FF",
+                               "grey90","#2A7B8EFF",
+                               "grey90","#22A384FF",
+                               "grey90","#7AD151FF",
+                               "grey90","#FDE725FF",
                                "white")) +
   
   # Add a val=100/75/50/25 lines. I do it at the beginning to make sur barplots are OVER it.
@@ -120,21 +120,20 @@ ggplot(journals_summary) +
   
   ggplot2::annotate("text", 
                     x = rep(max(journals_summary$id)+0.38,1), 
-                    y = 360, 
+                    y = 150, 
                     label = "Number of Journals", 
                     color="grey50", 
                     size=3, 
                     angle=-88, 
                     fontface="bold", 
                     hjust=0.6) +
-  
-  ylim(-200,600) +
   theme_minimal() +
   theme(legend.position = "none",
     axis.text = element_blank(),
     axis.title = element_blank(),
     panel.grid = element_blank(),
     plot.margin = unit(rep(-1,4), "cm")) +
+  scale_y_reverse(limits = c(800,-100)) + 
   coord_polar() +
   
   # Add labels on top of each bar
@@ -142,20 +141,20 @@ ggplot(journals_summary) +
   
   # Add base line information
   geom_segment(data=base_data, 
-               aes(x = start, y = -5, xend = end, yend = -5), 
+               aes(x = start, y = 542, xend = end, yend = 542), 
                colour = "black", 
                alpha=0.8, 
                size=0.6, 
                inherit.aes = FALSE )  +
   geom_text(data=base_data, 
-            aes(x = title, y = -50, label= c("Figures","Main","SI","Tables","Videos")), 
+            aes(x = title, y = 600, label= c("Figures","Main","SI","Tables","Videos")), 
             colour = "black", 
             alpha=0.8, 
             size=4, 
             angle=c(-25,70,10,-65,45), 
             fontface="bold", 
             inherit.aes = FALSE) +
-  geom_text(aes(x = id, y = 593, label = Percent))
+  geom_text(aes(x = id, y = -75, label = Percent))
 
             
 
@@ -214,16 +213,16 @@ grid_data <- grid_data[-1,]
 
 publishers_summary$Var3 <- paste(publishers_summary$Var2, "_", publishers_summary$variable)
 publishers_summary$Var3 <- factor(publishers_summary$Var3, 
-                                levels = c("Color blindness _ Freq",
-                                           "Color blindness _ Freq_No",
-                                           "Visual impairment (other than color blind) _ Freq",
+                                levels = c("Color blindness _ Freq_No",
+                                            "Color blindness _ Freq",
                                            "Visual impairment (other than color blind) _ Freq_No",
-                                           "Non-specific _ Freq",
+                                           "Visual impairment (other than color blind) _ Freq",
                                            "Non-specific _ Freq_No",
-                                           "Seizures _ Freq",
+                                           "Non-specific _ Freq",
                                            "Seizures _ Freq_No",
-                                           "Learning disabilities (including dyslexia) _ Freq",
+                                           "Seizures _ Freq",
                                            "Learning disabilities (including dyslexia) _ Freq_No",
+                                           "Learning disabilities (including dyslexia) _ Freq",
                                            "NA _ NA"))
 
 percent_data <- publishers_summary[publishers_summary$variable == "Freq",]
@@ -238,11 +237,11 @@ ggplot(publishers_summary) +
   
   # Add the stacked bar
   geom_bar(aes(x=as.factor(id), y=value, fill=Var3), stat="identity") +
-  scale_fill_manual(values = c("#440154FF","grey90",
-                               "#2A7B8EFF","grey90",
-                               "#22A384FF","grey90",
-                               "#7AD151FF","grey90",
-                               "#FDE725FF","grey90",
+  scale_fill_manual(values = c("grey90","#440154FF",
+                               "grey90","#2A7B8EFF",
+                               "grey90","#22A384FF",
+                               "grey90","#7AD151FF",
+                               "grey90","#FDE725FF",
                                "white")) +
   
   # Add a val=100/75/50/25 lines. I do it at the beginning to make sur barplots are OVER it.
@@ -266,21 +265,20 @@ ggplot(publishers_summary) +
   
   ggplot2::annotate("text", 
                     x = rep(max(publishers_summary$id)+0.38,1), 
-                    y = 360, 
+                    y = 150, 
                     label = "Number of journals", 
                     color="grey50", 
                     size=3, 
                     angle=-88, 
                     fontface="bold", 
                     hjust=0.6) +
-  
-  ylim(-200,600) +
   theme_minimal() +
   theme(legend.position = "none",
         axis.text = element_blank(),
         axis.title = element_blank(),
         panel.grid = element_blank(),
         plot.margin = unit(rep(-1,4), "cm")) +
+  scale_y_reverse(limits = c(800,-100)) + 
   coord_polar() +
   
   # Add labels on top of each bar
@@ -288,17 +286,17 @@ ggplot(publishers_summary) +
   
   # Add base line information
   geom_segment(data=base_data, 
-               aes(x = start, y = -5, xend = end, yend = -5), 
+               aes(x = start, y = 542, xend = end, yend = 542), 
                colour = "black", 
                alpha=0.8, 
                size=0.6, 
                inherit.aes = FALSE )  +
   geom_text(data=base_data, 
-            aes(x = title, y = -50, label= c("Figures","Main","SI","Tables","Videos")), 
+            aes(x = title, y = 600, label= c("Figures","Main","SI","Tables","Videos")), 
             colour = "black", 
             alpha=0.8, 
             size=4, 
             angle=c(-25,70,10,-65,45), 
             fontface="bold", 
             inherit.aes = FALSE) +
-  geom_text(aes(x = id, y = 593, label = Percent))
+  geom_text(aes(x = id, y = -75, label = Percent))
