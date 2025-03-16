@@ -1,12 +1,12 @@
-# Journal articles must be made accesssible
-Submitted
+# Widespread lack of article accessibility policies among ecology and evolution journals
+Accepted at Nature Ecology and Evolution
 
 Olivia M. Smith*, Brooke E. Jeffery, Wendy Leuenberger, Caitlin Mack, Gina Pizzo, Bobicheng Zhang, and Courtney L. Davis
 
 *Please contact the first author with any questions about the code or publication: Olivia M. Smith (smitho17@msu.edu)
 
 ## Abstract
-Recent work has illuminated inequities in academic publishing, but little attention has been paid to the inequities disabled scientists face. We reviewed the websites of 541 ecology and evolution journals to examine the extent that they prompt authors to prepare accessible manuscripts. Nearly three-quarters of journals do not encourage authors to consider accessibility when preparing manuscripts. Existing guidelines primarily focus on colorblind-friendly figures, which was mentioned almost twice as much as other recommendations. Our survey signals an urgent need for widespread journal policy reforms. We conclude with recommendations for an iterative process of reform in collaboration with the disability community. 
+Recent work has illuminated huge inequities in academic publishing based on author demographics such as assumed gender, geography, language, and prestige. Yet, little attention has been paid to the inequities that scientists with disabilities face. We reviewed the websites of 541 ecology and evolution journals to examine the extent to which they prompt authors to prepare accessible manuscripts. Here we show that nearly three-quarters of journals do not encourage authors to consider accessibility when preparing manuscripts. Existing guidelines primarily focus on colourblind-friendly figures, which was mentioned almost twice as often as any other recommendation. Our survey signals an urgent need for widespread journal policy reforms that require authors to format their manuscripts according to Universal Design principles. As a starting point to improving manuscript accessibility, we provide an accessibility checklist for authors to reference when preparing manuscripts. We conclude with recommendations for an iterative process of reform in collaboration with the disability community.
 
 &nbsp; 
 
