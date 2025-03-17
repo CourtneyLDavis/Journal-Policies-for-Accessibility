@@ -14,6 +14,9 @@ library(reshape2)
 # Read in the journal policy data
 policy.data <- readxl::read_xlsx(here("Data", "Data S1. Accessibility policies.xlsx"))
 
+# Remove duplicate rows where journals had policies on their website and in a journal-specific PDF
+policy.data <- policy.data[-c(69,381,584),]
+
 # Split the journal policy data into entries that are found in "journal materials" and "publisher materials"
 journals <- subset(policy.data, grepl("Journal", policy.data$`Policy location`))
 publishers <- subset(policy.data, grepl("Publisher", policy.data$`Policy location`))
@@ -113,7 +116,7 @@ ggplot(journals_summary) +
                     y = c(0, 100, 200, 300, 400, 500), 
                     label = c("0", "100", "200", "300", "400", "500") , 
                     color="grey50", 
-                    size=3, 
+                    size=4, 
                     angle=0, 
                     fontface="bold", 
                     hjust=0.6) +
@@ -123,7 +126,7 @@ ggplot(journals_summary) +
                     y = 150, 
                     label = "Number of Journals", 
                     color="grey50", 
-                    size=3, 
+                    size=4, 
                     angle=-88, 
                     fontface="bold", 
                     hjust=0.6) +
@@ -150,11 +153,12 @@ ggplot(journals_summary) +
             aes(x = title, y = 600, label= c("Figures","Main","SI","Tables","Videos")), 
             colour = "black", 
             alpha=0.8, 
-            size=4, 
+            size=6, 
             angle=c(-25,70,10,-65,45), 
             fontface="bold", 
             inherit.aes = FALSE) +
-  geom_text(aes(x = id, y = -75, label = Percent))
+  geom_text(aes(x = id, y = -75, label = Percent), size = 6)
+ggsave(here("Figures","Journals.tiff"), dpi = 600)
 
             
 
@@ -258,7 +262,7 @@ ggplot(publishers_summary) +
                     y = c(0, 100, 200, 300, 400, 500), 
                     label = c("0", "100", "200", "300", "400", "500") , 
                     color="grey50", 
-                    size=3, 
+                    size=4, 
                     angle=0, 
                     fontface="bold", 
                     hjust=0.6) +
@@ -268,7 +272,7 @@ ggplot(publishers_summary) +
                     y = 150, 
                     label = "Number of journals", 
                     color="grey50", 
-                    size=3, 
+                    size=4, 
                     angle=-88, 
                     fontface="bold", 
                     hjust=0.6) +
@@ -295,8 +299,11 @@ ggplot(publishers_summary) +
             aes(x = title, y = 600, label= c("Figures","Main","SI","Tables","Videos")), 
             colour = "black", 
             alpha=0.8, 
-            size=4, 
+            size=6, 
             angle=c(-25,70,10,-65,45), 
             fontface="bold", 
             inherit.aes = FALSE) +
-  geom_text(aes(x = id, y = -75, label = Percent))
+  geom_text(aes(x = id, y = -75, label = Percent), size = 6)
+ggsave(here("Figures","Publishers.tiff"), dpi = 600)
+
+       
