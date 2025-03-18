@@ -15,11 +15,12 @@ library(reshape2)
 policy.data <- readxl::read_xlsx(here("Data", "Data S1. Accessibility policies.xlsx"))
 
 # Remove duplicate rows where journals had policies on their website and in a journal-specific PDF
-policy.data <- policy.data[-c(69,381,584),]
+policy.data <- policy.data[-c(69,119,120,124,126,127,133,134,138,139,
+                              147,148,153,154,158,159,164,166,381,584),]
 
 # Split the journal policy data into entries that are found in "journal materials" and "publisher materials"
 journals <- subset(policy.data, grepl("Journal", policy.data$`Policy location`))
-publishers <- subset(policy.data, grepl("Publisher", policy.data$`Policy location`))
+publishers <- subset(policy.data, grepl("Publisher", policy.data$`Policy location`)| grepl("Other", policy.data$`Policy location`))
 
 
 ##### Accessibility policy found in journal materials ####
